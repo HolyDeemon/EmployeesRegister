@@ -1,0 +1,376 @@
+/**
+ * Стили для страницы редактирования сотрудника
+ * Совместимы с дизайном elektrik-master.ru
+ */
+
+/* ============================================
+   Основной контейнер
+   ============================================ */
+.edit-container {
+    max-width: 800px;
+    margin: 30px auto;
+    padding: 0 20px;
+}
+
+.edit-container .page-title {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border-bottom: 1px solid #e5e5e5;
+    padding-bottom: 10px;
+    margin-bottom: 20px;
+}
+
+.edit-container .page-title h1 {
+    color: #333;
+    font-size: 24px;
+    font-weight: 600;
+    text-transform: uppercase;
+}
+
+.edit-container .page-title h1 i {
+    margin-right: 10px;
+}
+
+/* ============================================
+   Кнопка назад
+   ============================================ */
+.button-back {
+    background: #636363;
+    color: #fff;
+    padding: 8px 18px;
+    border-radius: 3px;
+    text-decoration: none;
+    font-size: 14px;
+    font-weight: 600;
+    transition: background 0.3s ease;
+}
+
+.button-back:hover {
+    background: #4a4a4a;
+    color: #fff;
+    text-decoration: none;
+}
+
+.button-back i {
+    margin-right: 5px;
+}
+
+/* ============================================
+   Форма
+   ============================================ */
+.scaffold-form {
+    background: #f9f9f9;
+    padding: 30px;
+    border: 1px solid #e5e5e5;
+    border-radius: 5px;
+}
+
+.scaffold-form fieldset {
+    border: 1px solid #e5e5e5;
+    border-radius: 5px;
+    padding: 20px 25px;
+    margin-bottom: 25px;
+    background: #fff;
+}
+
+.scaffold-form legend {
+    font-size: 16px;
+    font-weight: bold;
+    color: #333;
+    padding: 0 10px;
+}
+
+.scaffold-form legend i {
+    margin-right: 8px;
+    color: #3399cc;
+}
+
+.scaffold-form .form-list {
+    margin: 0;
+    padding: 0;
+}
+
+.scaffold-form .form-list:after {
+    content: '';
+    display: table;
+    clear: both;
+}
+
+.scaffold-form .form-list li {
+    display: inline-block;
+    width: 100%;
+    margin-bottom: 15px;
+    list-style: none;
+}
+
+.scaffold-form .form-list li.half {
+    width: 48%;
+    margin-right: 2%;
+}
+
+.scaffold-form .form-list li.half:last-child {
+    margin-right: 0;
+}
+
+.scaffold-form .form-list label {
+    display: block;
+    font-size: 13px;
+    font-weight: 600;
+    color: #555;
+    margin-bottom: 5px;
+}
+
+.scaffold-form .form-list label .required {
+    color: #e74c3c;
+    font-weight: bold;
+}
+
+.scaffold-form .form-list .input-text {
+    width: 100%;
+    padding: 10px 12px;
+    border: 1px solid #ccc;
+    border-radius: 3px;
+    font-size: 14px;
+    background: #fff;
+    box-sizing: border-box;
+    transition: border-color 0.3s ease;
+}
+
+.scaffold-form .form-list .input-text:focus {
+    border-color: #3399cc;
+    outline: none;
+    box-shadow: 0 0 5px rgba(51, 153, 204, 0.3);
+}
+
+.scaffold-form .form-list .input-text.error {
+    border-color: #e74c3c;
+}
+
+/* ============================================
+   Секция фото
+   ============================================ */
+.photo-section {
+    display: flex;
+    align-items: flex-start;
+    gap: 30px;
+    padding: 10px 0;
+}
+
+.photo-preview {
+    flex-shrink: 0;
+    width: 150px;
+    height: 150px;
+    border-radius: 50%;
+    overflow: hidden;
+    border: 3px solid #e5e5e5;
+    background: #f0f0f0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.photo-preview img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.photo-preview .photo-placeholder {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    color: #999;
+    font-size: 14px;
+}
+
+.photo-preview .photo-placeholder i {
+    font-size: 48px;
+    margin-bottom: 5px;
+}
+
+.photo-upload {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    padding-top: 20px;
+}
+
+.photo-upload .button {
+    display: inline-block;
+    padding: 8px 18px;
+    border: none;
+    border-radius: 3px;
+    font-size: 14px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: background 0.3s ease;
+    text-align: center;
+    text-decoration: none;
+}
+
+.photo-upload .button i {
+    margin-right: 5px;
+}
+
+.button-upload {
+    background: #3399cc;
+    color: #fff;
+}
+
+.button-upload:hover {
+    background: #2e8ab8;
+}
+
+.button-remove {
+    background: #e74c3c;
+    color: #fff;
+}
+
+.button-remove:hover {
+    background: #c0392b;
+}
+
+/* ============================================
+   Кнопки формы
+   ============================================ */
+.form-actions {
+    display: flex;
+    gap: 10px;
+    margin-top: 10px;
+    padding-top: 20px;
+    border-top: 1px solid #e5e5e5;
+}
+
+.form-actions .button {
+    padding: 10px 30px;
+    border: none;
+    border-radius: 3px;
+    font-size: 16px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: background 0.3s ease;
+}
+
+.form-actions .button i {
+    margin-right: 8px;
+}
+
+.button-save {
+    background: #2ecc71;
+    color: #fff;
+}
+
+.button-save:hover {
+    background: #27ae60;
+}
+
+.button-cancel {
+    background: #e74c3c;
+    color: #fff;
+}
+
+.button-cancel:hover {
+    background: #c0392b;
+}
+
+/* ============================================
+   Сообщения
+   ============================================ */
+#messageContainer {
+    margin-top: 20px;
+}
+
+.message {
+    padding: 12px 18px;
+    border-radius: 3px;
+    font-weight: 500;
+    display: flex;
+    align-items: center;
+}
+
+.message i {
+    margin-right: 10px;
+    font-size: 18px;
+}
+
+.message-success {
+    background: #d5f5e3;
+    color: #1a7a42;
+    border: 1px solid #a9dfbf;
+}
+
+.message-error {
+    background: #fadbd8;
+    color: #922b21;
+    border: 1px solid #f1948a;
+}
+
+.message-loading {
+    background: #d6eaf8;
+    color: #1a5276;
+    border: 1px solid #85c1e9;
+}
+
+/* ============================================
+   Адаптивность
+   ============================================ */
+@media (max-width: 768px) {
+    .edit-container .page-title {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 10px;
+    }
+
+    .edit-container .page-title h1 {
+        font-size: 20px;
+    }
+
+    .scaffold-form {
+        padding: 15px;
+    }
+
+    .scaffold-form fieldset {
+        padding: 15px;
+    }
+
+    .scaffold-form .form-list li.half {
+        width: 100%;
+        margin-right: 0;
+    }
+
+    .photo-section {
+        flex-direction: column;
+        align-items: center;
+        gap: 15px;
+    }
+
+    .photo-upload {
+        align-items: center;
+        padding-top: 0;
+    }
+
+    .form-actions {
+        flex-direction: column;
+    }
+
+    .form-actions .button {
+        width: 100%;
+        text-align: center;
+    }
+}
+
+@media (max-width: 480px) {
+    .edit-container {
+        padding: 0 10px;
+    }
+
+    .photo-preview {
+        width: 120px;
+        height: 120px;
+    }
+
+    .scaffold-form {
+        padding: 10px;
+    }
+}

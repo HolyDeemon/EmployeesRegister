@@ -1,0 +1,7 @@
+SQLAlchemy
+FastApi
+Jinja2
+uvicorn
+alembic
+psycopg2-binary
+asyncpg

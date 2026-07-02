@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{{ 'Редактирование сотрудника' if employee else 'Новый сотрудник' }}</title>
+
+    <link rel="stylesheet" href="/static/css/edit.css">
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.inputmask/5.0.7/jquery.inputmask.min.js"></script>
+
+</head>
+<body>
+    <div class="edit-container">
+        <div class="page-title">
+            <h1>
+                {% if employee %}
+                    Редактирование сотрудника
+                {% else %}
+                    Новый сотрудник
+                {% endif %}
+            </h1>
+            <a href="/" class="button button-back">
+                Назад к списку
+            </a>
+        </div>
+
+        <form id="employeeForm" class="scaffold-form">
+            <input type="hidden" id="employeeId" value="{{ employee.id if employee else '' }}">
+            <fieldset>
+                <legend>Основная информация</legend>
+
+                <ul class="form-list">
+                    <li>
+                        <label for="surname">Фамилия <span class="required">*</span></label>
+                        <input type="text" id="surname" class="input-text"
+                               value="{{ employee.surname if employee else '' }}"
+                               placeholder="Введите фамилию" required>
+                    </li>
+                    <li>
+                        <label for="name">Имя <span class="required">*</span></label>
+                        <input type="text" id="name" class="input-text"
+                               value="{{ employee.name if employee else '' }}"
+                               placeholder="Введите имя" required>
+                    </li>
+                    <li>
+                        <label for="patronymic">Отчество</label>
+                        <input type="text" id="patronymic" class="input-text"
+                               value="{{ employee.patronymic if employee else '' }}"
+                               placeholder="Введите отчество">
+                    </li>
+                </ul>
+            </fieldset>
+
+            <fieldset>
+                <legend>Контактные данные</legend>
+
+                <ul class="form-list">
+                    <li>
+                        <label for="birthDate">Дата рождения <span class="required">*</span></label>
+                        <input type="date" id="birthDate" class="input-text"
+                               value="{{ employee.birth_date.strftime('%Y-%m-%d') if employee and employee.birth_date else '' }}"
+                               required>
+                    </li>
+                    <li>
+                        <label for="phone">Телефон</label>
+                        <input type="tel" id="phone" class="input-text"
+                               value="{{ employee.phone if employee else '' }}"
+                               placeholder="+7 (999) 123-45-67">
+                    </li>
+                    <li>
+                        <label for="gender">Пол <span class="required">*</span></label>
+                        <select id="gender" class="input-text" required>
+                            <option value="">Выберите пол</option>
+                            <option value="true" {{ 'selected' if employee and employee.gender == true else '' }}>Мужской</option>
+                            <option value="false" {{ 'selected' if employee and employee.gender == false else '' }}>Женский</option>
+                        </select>
+                    </li>
+                </ul>
+            </fieldset>
+
+            <fieldset>
+                <legend>Фото</legend>
+
+                <div class="photo-section">
+                    <div class="photo-preview">
+                        {% if employee and employee.image %}
+                            <img id="photoPreview" src="data:image/jpeg;base64,{{ employee.image }}" alt="Фото сотрудника">
+                        {% else %}
+                            <div id="photoPreview" class="photo-placeholder">
+                                <span>Нет фото</span>
+                            </div>
+                        {% endif %}
+                    </div>
+
+                    <div class="photo-upload">
+                        <label for="photoInput" class="button button-upload">
+                            Выбрать фото
+                        </label>
+                        <input type="file" id="photoInput" accept="image/*" style="display: none;">
+                        <button type="button" id="removePhoto" class="button button-remove"
+                                style="{{ 'display: none;' if not employee or not employee.image else '' }}">
+                            Удалить фото
+                        </button>
+                    </div>
+                </div>
+            </fieldset>
+
+            <div class="form-actions">
+                <button type="submit" class="button button-save">
+                    Сохранить
+                </button>
+                <button type="button" id="cancelBtn" class="button button-cancel">
+                    Отмена
+                </button>
+            </div>
+
+            <div id="messageContainer"></div>
+        </form>
+    </div>
+
+    <script src="/static/js/edit.js"></script>
+</body>
+</html>

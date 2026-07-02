@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Сотрудники</title>
+
+    <link rel="stylesheet" href="/static/css/view.css">
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.inputmask/5.0.7/jquery.inputmask.min.js"></script>
+</head>
+<body>
+    <div class="employee-container">
+        <div class="page-title">
+            <h1>Сотрудники</h1>
+            <a href="/edit" class="button button-add">
+                Добавить нового
+            </a>
+        </div>
+
+        <div class="filter-panel">
+            <form id="filterForm" class="scaffold-form" action="#">
+                <ul class="form-list">
+                    <li>
+                        <label for="searchName">ФИО</label>
+                        <input type="text" id="searchName" class="input-text" placeholder="Введите имя...">
+                    </li>
+                    <li>
+                        <label for="searchPhone">Телефон</label>
+                        <input type="text" id="searchPhone" class="input-text" placeholder="+7 (999) 123-45-67">
+                    </li>
+                    <li class="gender-filter">
+                        <label>Пол</label>
+                        <div class="gender-checkboxes">
+                            <label class="checkbox-label">
+                                <input type="checkbox" id="filterMale" value="male">
+                                Мужской
+                            </label>
+                            <label class="checkbox-label">
+                                <input type="checkbox" id="filterFemale" value="female">
+                                Женский
+                            </label>
+                        </div>
+                    </li>
+                    <li>
+                        <label>Возраст</label>
+                        <div class="age-range">
+                            <input type="number" id="ageFrom" class="input-text" placeholder="От" min="18" max="80">
+                            <span>—</span>
+                            <input type="number" id="ageTo" class="input-text" placeholder="До" min="18" max="80">
+                        </div>
+                    </li>
+                    <li class="filter-actions">
+                        <button type="button" id="applyFilters" class="button">
+                            Применить
+                        </button>
+                        <button type="button" id="resetFilters" class="button button-secondary">
+                            Сбросить
+                        </button>
+                    </li>
+                </ul>
+            </form>
+        </div>
+
+        <div class="stats-bar">
+            <span>Найдено: <strong class="found-count" id="foundCount">0</strong> сотрудников</span>
+            <span>Всего: <strong id="totalEmployees">0</strong></span>
+        </div>
+
+        <table class="data-table employee-table" id="employeeTable">
+            <thead>
+                <tr>
+                    <th>#</th>
+                    <th>Фото</th>
+                    <th>ФИО</th>
+                    <th>Возраст</th>
+                    <th>Телефон</th>
+                    <th>Пол</th>
+                    <th style="text-align: center;">Действия</th>
+                </tr>
+            </thead>
+            <tbody id="tableBody">
+                <!-- Данные JS -->
+            </tbody>
+        </table>
+
+        <div id="loadingState" class="loading-state" style="display: none;">
+            <p>Загрузка данных...</p>
+        </div>
+
+        <div id="emptyState" class="empty-state" style="display: none;">
+            <p>Сотрудники не найдены</p>
+            <span>Попробуйте изменить параметры поиска</span>
+        </div>
+
+        <div id="errorState" class="error-state" style="display: none;">
+            <p>Ошибка загрузки данных</p>
+            <button onclick="loadEmployees()" class="button">
+                Повторить
+            </button>
+        </div>
+    </div>
+
+    <script src="{{ url_for('static', path='js/view.js') }}"></script>
+</body>
+</html>
