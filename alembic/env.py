@@ -8,7 +8,8 @@ from sqlalchemy.ext.asyncio import async_engine_from_config
 
 from alembic import context
 
-from database import Base, DATABASE_URL
+from database import Base
+from config import DATABASE_URL
 import model
 
 # this is the Alembic Config object, which provides
@@ -45,6 +46,7 @@ def run_migrations_offline() -> None:
 
     """
     url = config.get_main_option("sqlalchemy.url", DATABASE_URL)
+        
     context.configure(
         url=url,
         target_metadata=target_metadata,
