@@ -319,11 +319,11 @@ function setupEventListeners() {
 document.addEventListener('DOMContentLoaded', function() {
     setupEventListeners();
     loadEmployees();
+    setupPhone();
 });
 
-document.addEventListener('DOMContentLoaded', function() {
+function setupPhone() {
     const phoneInput = document.getElementById('searchPhone');
-
     if (phoneInput) {
         Inputmask({
             mask: '+7 (999) 999-99-99',
@@ -333,7 +333,11 @@ document.addEventListener('DOMContentLoaded', function() {
             clearIncomplete: false
         }).mask(phoneInput);
     }
-});
+}
+
+function editEmployee(id) {
+    window.location.href = `/edit/${id}`;
+}
 
 window.deleteEmployee = deleteEmployee;
 window.loadEmployees = loadEmployees;
