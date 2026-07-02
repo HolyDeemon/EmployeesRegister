@@ -5,3 +5,4 @@ uvicorn
 alembic
 psycopg2-binary
 asyncpg
+python-dotenv

@@ -1,0 +1,124 @@
+# ============================================
+# ВИРТУАЛЬНОЕ ОКРУЖЕНИЕ
+# ============================================
+venv/
+env/
+.env/
+.venv/
+ENV/
+env.bak/
+venv.bak/
+
+# ============================================
+# PYTHON
+# ============================================
+__pycache__/
+*.py[cod]
+*$py.class
+*.so
+.Python
+*.pyc
+*.pyo
+*.pyd
+
+# ============================================
+# IDE
+# ============================================
+.vscode/
+.idea/
+*.swp
+*.swo
+*~
+.DS_Store
+Thumbs.db
+*.iml
+.idea/workspace.xml
+.idea/tasks.xml
+.idea/dictionaries
+.idea/libraries
+.idea/dataSources.ids
+.idea/dataSources.xml
+.idea/sqlDataSources.xml
+.idea/datasources.xml
+.idea/misc.xml
+
+# ============================================
+# ЛОГИ И ДАННЫЕ
+# ============================================
+*.log
+logs/
+*.db
+*.sqlite3
+*.sqlite
+*.sqlite-journal
+*.sqlite-wal
+*.sqlite-shm
+
+# ============================================
+# ФАЙЛЫ ОКРУЖЕНИЯ
+# ============================================
+.env
+.env.local
+.env.*.local
+*.env
+.env.prod
+.env.dev
+
+# ============================================
+# ЗАВИСИМОСТИ
+# ============================================
+pip-log.txt
+pip-delete-this-directory.txt
+pip-selfcheck.json
+.pip/
+
+# ============================================
+# АРХИВЫ
+# ============================================
+*.zip
+*.tar.gz
+*.rar
+*.7z
+
+# ============================================
+# ВРЕМЕННЫЕ ФАЙЛЫ
+# ============================================
+*.tmp
+*.temp
+*.bak
+*.backup
+
+# ============================================
+# ДОКУМЕНТАЦИЯ
+# ============================================
+*.pdf
+*.docx
+*.pptx
+
+# ============================================
+# ОПРЕДЕЛЕННЫЕ ДЛЯ ПРОЕКТА
+# ============================================
+.DS_Store
+Thumbs.db
+desktop.ini
+
+# Alembic
+alembic/*.pyc
+alembic/versions/*.pyc
+
+# Docker
+.dockerignore
+
+# Coverage
+.coverage
+htmlcov/
+.tox/
+.nox/
+.coverage.*
+coverage.xml
+*.cover
+*.py,cover
+.hypothesis/
+.pytest_cache/
+.mypy_cache/
+.ruff_cache/

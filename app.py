@@ -1,7 +1,9 @@
 import base64
+import os
+from dotenv import load_dotenv
 
 from fastapi import FastAPI, Request
-from fastapi.responses import RedirectResponse, HTMLResponse, Response
+from fastapi.responses import HTMLResponse, Response
 from fastapi.exceptions import HTTPException
 from fastapi.middleware.cors import CORSMiddleware
 from fastapi.staticfiles import StaticFiles
@@ -10,6 +12,10 @@ from DAO import UsersDAO
 from datetime import datetime
 
 from schemas import UserResponse
+
+load_dotenv()
+
+DATABASE_URL = os.getenv("DATABASE_URL")
 
 app = FastAPI()
 app.mount('/static', StaticFiles(directory='static'), name='static')
