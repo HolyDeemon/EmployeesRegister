@@ -8,4 +8,4 @@ alembic upgrade head
 
 # Запуск приложения
 echo Starting application...
-uvicorn appapp --host 0.0.0.0 --port $PORT
+uvicorn app:app --host 0.0.0.0 --port $PORT
