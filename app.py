@@ -24,6 +24,7 @@ app.add_middleware(
 
 templates = Jinja2Templates(directory='template')
 
+@app.head("/")
 
 @app.get("/", response_class=HTMLResponse, summary="Таблица сотрудников")
 async def get_table(request: Request):
