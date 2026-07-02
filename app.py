@@ -1,6 +1,4 @@
 import base64
-import os
-from dotenv import load_dotenv
 
 from fastapi import FastAPI, Request
 from fastapi.responses import HTMLResponse, Response
@@ -13,9 +11,6 @@ from datetime import datetime
 
 from schemas import UserResponse
 
-load_dotenv()
-
-DATABASE_URL = os.getenv("DATABASE_URL")
 
 app = FastAPI()
 app.mount('/static', StaticFiles(directory='static'), name='static')
