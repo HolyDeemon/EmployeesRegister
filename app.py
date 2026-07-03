@@ -69,12 +69,10 @@ async def get_employee_image(id: int):
 async def add_new(request: Request):
     data = await request.json()
 
+    image_base64 = data.get("img_full")
     image_bytes = None
-    if data.get("image_base64"):
-        try:
-            image_bytes = base64.b64decode(data["image_base64"])
-        except Exception as e:
-            raise HTTPException(400, f"Ошибка декодирования изображения: {e}")
+    if image_base64 != None:
+        image_bytes = base64.b64decode(image_base64)
 
     if data.get("birth_date"):
         birth_date = datetime.fromisoformat(data.get("birth_date"))
@@ -98,10 +96,8 @@ async def edit_employee(request: Request, id: int):
 
     image_base64 = data.get("img_full")
     image_bytes = None
-    image_thumb_bytes = None
     if image_base64 != None:
         image_bytes = base64.b64decode(image_base64)
-    print(image_bytes, image_thumb_bytes)
 
     birth_date_str = data.get("birth_date")
     if birth_date_str:
